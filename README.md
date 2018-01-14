@@ -28,8 +28,13 @@ print(tuple.0 = 1)
     * exclusiveOr()
 ## 흐름제어
 ### 조건분기문
-    * if 문
+    * if 문 - C와 달리 무조건 실행문에 {}를 붙여야함
     * switch 문
 ### 반복문
-    * for문
-    * while문
+    * for문 - 전체반복과 일부 반복이 있는데 for ...in...를 사용한다.
+        * 전체반복: for station in subway6 {print(이번역은 \(station)입니다)}
+        * 일부반복: for i in 0...3 {print(\(i+1)번째 회의실은\(roomNames[i])입니다)}  
+        dictionary에서 이용" for (roomName, capacity) in roomCapacity {"\(roomName)의 정원은 \(capacity)입니다.}
+    * while문-C와 구조 동일
+##옵셔널
+'값을 얻을 수 있는 가능성', 있을수도있고 존재하지 않을 수도 있는 것을 표현
