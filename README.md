@@ -36,5 +36,18 @@ print(tuple.0 = 1)
         * 일부반복: for i in 0...3 {print(\(i+1)번째 회의실은\(roomNames[i])입니다)}  
         dictionary에서 이용" for (roomName, capacity) in roomCapacity {"\(roomName)의 정원은 \(capacity)입니다.}
     * while문-C와 구조 동일
-##옵셔널
-'값을 얻을 수 있는 가능성', 있을수도있고 존재하지 않을 수도 있는 것을 표현
+## 옵셔널
+'값을 얻을 수 있는 가능성', 있을수도있고 존재하지 않을 수도 있는 것을 표현, ?로 표현  
+**접근법**  
+    * 강제 언래핑(Force Unwrapping): !를 사용 --> nil이 아니라고 반드시 확신할 때만 사용 --> nil일 경우 crash  
+        ex) var ratings: [Int]? = nil  
+            print(\(ratings!.count))
+    * 옵셔널 바인딩: 변수가 nil이 아닌지 확인 한 뒤 **nil이 아닐 경우에만 강제 언래핑**  
+        if let과 할당할 새로운 변수를 활용  
+        ex) if let the ratings = ratings {bookDescroption += "has \(theRatings.count) ratings"}
+    * 내부적 언랩드 옵셔널 - 어쩔 수 없이 옵셔널이지만 옵셔널이 아니라고 확신할 수 있을 때에 사용  
+                            예를들어 윈도우 프로그램이 시동시점에는 윈도우가 없지만 켜지고 나면 항상 있음  
+                            선언 시 !를 사용  
+        ex) var URL: String! = nil  
+            URL ="www.codershigh.com"  
+            bookDescription += "\r\nsupport web page: \(URL)"
