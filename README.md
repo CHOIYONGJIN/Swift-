@@ -13,7 +13,7 @@ print(tuple.0 = 1)
         ex) meetingRooms[1], speed.first, speed.last
     복사형식이기때문에 같은 배열을 할당하여 하나의 값을 변경하면 두 배열은 달라진다.
 * **Dictionary**: *Key*와 *value*가 대응되는 것들의 집합  
-    * 선언 방법: var roomCapacity: [String: Int]= ["Revera": 10, "matissa": 8,             "hissape": 20]  
+    * 선언 방법: var roomCapacity: [String: Int]= ["Revera": 10, "matissa": 8, "hissape": 20]  
     * 추가: ~~roomCapacity += ["Renoir": 40]~~  
         value를 key에 할당하는 방식으로 추가함  
         ex) roomCapacity["Renoir"] = 40  
@@ -26,28 +26,56 @@ print(tuple.0 = 1)
     * subtract()
     * union()
     * exclusiveOr()
+## data model
+### Structure(구조체)
+* value 타입, 즉 값(instance)이 복사됨 -->let 선인시 수정불가  
+* 선언: struct 구조체이름 {}으로 선언  
+    ex) struct Task{  
+        var title: String?  
+        var time: Int?  
+    }  
+* 접근: var callTask = Task(title: "Call to randy", time: 10*60) or Task.calltask = "Call to randy"  
+    nil 일 경우 var callTask = Task()로도 가능
+### Class
+    reference 타입, 즉 램의 번지수가 복사됨, Object를 생성--> let 선언해도 내부의 property가 var이면 수정가능  
+    * 선언: class 이름 {}  
+    ex) class Employee {
+        var name: String?  
+        var phoneNumber: String?  
+        var boss: Employee?  
+    }
 ## 흐름제어
 ### 조건분기문
-    * if 문: C와 달리 무조건 실행문에 {}를 붙여야함
-    * switch 문
+* if 문: C와 달리 무조건 실행문에 {}를 붙여야함
+* switch 문
 ### 반복문
-    * for문 - 전체반복과 일부 반복이 있는데 for ...in...를 사용한다.
-        * 전체반복: for station in subway6 {print(이번역은 \(station)입니다)}
-        * 일부반복: for i in 0...3 {print(\(i+1)번째 회의실은\(roomNames[i])입니다)}  
+* for문 - 전체반복과 일부 반복이 있는데 for ...in...를 사용한다.
+    * 전체반복: for station in subway6 {print(이번역은 \(station)입니다)}
+    * 일부반복: for i in 0...3 {print(\(i+1)번째 회의실은\(roomNames[i])입니다)}  
         dictionary에서 이용" for (roomName, capacity) in roomCapacity {"\(roomName)의 정원은 \(capacity)입니다.}
-    * while문: C와 구조 동일
+* while문: C와 구조 동일
 ## 옵셔널
 '값을 얻을 수 있는 가능성', 있을수도있고 존재하지 않을 수도 있는 것을 표현, ?로 표현  
 **접근법**  
-    * 강제 언래핑(Force Unwrapping): !를 사용 --> nil이 아니라고 반드시 확신할 때만 사용 --> nil일 경우 crash  
+* 강제 언래핑(Force Unwrapping): !를 사용 --> nil이 아니라고 반드시 확신할 때만 사용 --> nil일 경우 crash  
         ex) var ratings: [Int]? = nil  
-            print(\(ratings!.count))
-    * 옵셔널 바인딩: 변수가 nil이 아닌지 확인 한 뒤 **nil이 아닐 경우에만 강제 언래핑**  
+            print(\(ratings!.count))  
+* 옵셔널 바인딩: 변수가 nil이 아닌지 확인 한 뒤 **nil이 아닐 경우에만 강제 언래핑**  
         if let과 할당할 새로운 변수를 활용  
-        ex) if let the ratings = ratings {bookDescroption += "has \(theRatings.count) ratings"}
-    * 내부적 언랩드 옵셔널 - 어쩔 수 없이 옵셔널이지만 옵셔널이 아니라고 확신할 수 있을 때에 사용  
+        ex) if let the ratings = ratings {bookDescroption += "has \(theRatings.count) ratings"}  
+* 내부적 언랩드 옵셔널 - 어쩔 수 없이 옵셔널이지만 옵셔널이 아니라고 확신할 수 있을 때에 사용  
                             예를들어 윈도우 프로그램이 시동시점에는 윈도우가 없지만 켜지고 나면 항상 있음  
                             선언 시 !를 사용  
         ex) var URL: String! = nil  
             URL ="www.codershigh.com"  
             bookDescription += "\r\nsupport web page: \(URL)"
+## 함수
+### 구조
+func functionName (parameter: type) -> returnType {....return }, func functionName () {}
+
+## enumeration
+연관된 값들을 처리할 때 사용  
+* 사용법: enum planet{
+    case earth
+    case marcury
+}
